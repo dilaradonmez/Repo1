@@ -1,0 +1,42 @@
+﻿
+@model List<MVC_Layout.Models.Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-12">
+    @Html.ActionLink("New Caustomer", "AddCustomer", null, new { @class = "btn btn-success" })
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Company name</th>
+            <th>Contact Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+        <tr>
+            <td>@customer.CustomerID</td>
+            <td>@customer.CompanyName</td>
+            <td>@customer.ContactName</td>
+            <td>@customer.Address</td>
+            <td>@customer.City</td>
+            <td>@customer.Phone</td>
+
+            <td>
+                @Html.ActionLink("Remove", "RemoveCustomer", new { customerId =customer.CustomerID }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Update", "UpdateCustomer", new { customerId = customer.CustomerID }, new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

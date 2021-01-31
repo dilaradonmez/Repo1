@@ -1,0 +1,43 @@
+﻿@model List<MVC_Layout.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    @Html.ActionLink("New Product", "AddProduct", null, new {@class="btn btn-success"})
+
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Stok</th>
+            <th>Category</th>
+            <th></th>
+
+        </tr>
+    </thead>
+     <tbody>
+        @foreach (var products in Model)
+        {
+            <tr>
+                <td>@products.ProductID</td>
+                <td>@products.ProductName</td>
+                <td>@products.UnitPrice</td>
+                <td>@products.UnitsInStock</td>
+                @*<td>@products.Categories.CategoryID</td>*@
+
+                <td>
+                  @Html.ActionLink("Remove", "CancelProduct", new { productId = products.ProductID }, new { @class = "btn btn-danger" })
+                 </td>
+
+
+             </tr>
+
+         }
+     </tbody>
+</table>
+

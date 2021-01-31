@@ -1,0 +1,41 @@
+﻿@model List<MVC_Layout.Models.Suppliers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    @Html.ActionLink("New Supplier", "AddSupplier", null, new { @class = "btn btn-success" })
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Company Name</th>
+            <th>Contact Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <td>@supplier.SupplierID</td>
+                <td>@supplier.CompanyName</td>
+                <td>@supplier.ContactName</td>
+                <td>@supplier.Address</td>
+                <td>@supplier.City</td>
+                <td>@supplier.Phone</td>
+
+                <td>
+                    @Html.ActionLink("Remove", "RemoveSupplier", new { supplierId=supplier.SupplierID }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Update", "UpdateSupplier", new { supplierId=supplier.SupplierID}, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

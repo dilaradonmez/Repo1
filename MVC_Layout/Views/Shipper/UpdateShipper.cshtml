@@ -1,0 +1,24 @@
+﻿@model MVC_Layout.Models.Shippers
+@{
+    ViewBag.Title = "UpdateShipper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateShipper</h2>
+<div class="col-md-6">
+    <form method="post">
+        <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" value="@Model.CompanyName" name="CompanyName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" value="@Model.Orders" name="Orders" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" value="@Model.Phone" name="Phone" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
